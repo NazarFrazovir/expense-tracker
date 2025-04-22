@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Менеджер витрат</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Фіксований хедер -->
+  <header id="main-header">
+    <h1>📦 Менеджер витрат</h1>
+    <div class="header-right">
+      <div class="balance-overview">
+        <span id="balance-header">0 грн</span>
+      </div>
+      <div id="user-info" class="user-info hidden">
+        <ul id="user-menu" class="user-menu hidden">
+          <li data-action="rename">✏️ Змінити ім’я</li>
+          <li data-action="theme">🎨 Перемкнути тему</li>
+          <li data-action="clear">🧹 Очистити записи</li>
+          <li data-action="logout">🔒 Вийти</li>
+        </ul>
+        <img id="user-avatar" alt="Аватар" />
+        <span id="user-name"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Форма додавання запису -->
+    <form id="expense-form">
+      <div class="form-group">
+        <label for="type">Тип:</label>
+        <select id="type" required>
+          <option value="доход">Дохід</option>
+          <option value="витрата">Витрата</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Сума:</label>
+        <input type="number" id="amount" min="0.01" step="0.01" required />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Категорія:</label>
+        <input type="text" id="category" required placeholder="Наприклад: ЗП, Супермаркет..." />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Дата:</label>
+        <input type="date" id="date" required />
+      </div>
+
+      <div class="form-group">
+        <label for="note">Коментар:</label>
+        <input type="text" id="note" placeholder="(необов'язково)" />
+      </div>
+
+      <button type="submit">➕ Додати запис</button>
+    </form>
+
+    <!-- Підсумки -->
+    <section class="summary">
+      <div>Загальний баланс: <span id="balance">0 грн</span></div>
+      <div>Загальні доходи: <span id="total-income">0 грн</span></div>
+      <div>Загальні витрати: <span id="total-expense">0 грн</span></div>
+    </section>
+
+    <!-- Фільтри -->
+    <section class="filters">
+      <select id="filter-type">
+        <option value="всі">Усі типи</option>
+        <option value="доход">Дохід</option>
+        <option value="витрата">Витрата</option>
+      </select>
+
+      <select id="filter-category">
+        <option value="всі">Усі категорії</option>
+      </select>
+
+      <input type="date" id="filter-from" />
+      <input type="date" id="filter-to" />
+      <button id="apply-filters">🔍 Застосувати</button>
+      <button id="reset-filters">♻️ Скинути</button>
+    </section>
+
+    <!-- Таблиця записів -->
+    <section>
+      <h2>📋 Записи</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Тип</th>
+            <th>Сума</th>
+            <th>Категорія</th>
+            <th>Дата</th>
+            <th>Коментар</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="records-body">
+          <!-- динамічно -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Діаграма -->
+    <section>
+      <h2>📊 Діаграма витрат</h2>
+      <canvas id="expense-chart"></canvas>
+    </section>
+  </div>
+
+  <!-- Модальне вікно імені -->
+  <div id="name-modal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h2>👋 Як до вас звертатись?</h2>
+      <input type="text" id="user-name-input" placeholder="Введіть ім’я" required />
+      <button id="save-name-btn">Зберегти</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

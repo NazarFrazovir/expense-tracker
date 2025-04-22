@@ -1,0 +1,26 @@
+# Системні файли
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# npm / Node.js
+node_modules/
+
+# Логи
+*.log
+
+# Кеш
+.cache/
+dist/
+build/
+
+# Git-файли
+*.swp
+*.swo
+
+# Сервіси
+.env
+.env.local
