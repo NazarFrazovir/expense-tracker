@@ -46,7 +46,7 @@
 
 ## 🧪 Демо / Demo
 
-🌐 [Відкрити проєкт онлайн / Open live demo](https://github.com/NazarFrazovir/expense-tracker)
+🌐 [Відкрити проєкт онлайн / Open live demo](https://nazarfrazovir.github.io/expense-tracker/)
 
 
 ---
