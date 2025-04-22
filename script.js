@@ -306,3 +306,9 @@ document.addEventListener('click', (e) => {
     userMenu.classList.add('hidden');
   }
 });
+
+
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  preloader.classList.add('hidden');
+});
